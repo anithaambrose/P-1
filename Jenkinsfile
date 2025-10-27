@@ -41,7 +41,7 @@ pipeline {
 
               docker tag ${imageno} ${imageLatest} 
               docker push ${imageLatest}
-	      docekr rmi ${IMAGE}:${env.BUILD_NUMBER}
+	      docker rmi ${IMAGE}:${env.BUILD_NUMBER}
 
             """
           }
