@@ -3,6 +3,7 @@ pipeline {
 
   environment {
 	APP_SERV_IP = '52.66.255.233'
+	PORT = '80:80'
     	IMAGE = 'anitodevops/react-app'
         DOCKER_CRED_ID = 'dockerhub-creds'
   }
@@ -54,7 +55,6 @@ pipeline {
         script {
 
           def envType = (env.BRANCH_NAME == 'master') ? 'prod' : 'dev'
-          def port = '80:80'
           def container = "app-cont-${envType}"
           def imagetype = "${IMAGE}-${envType}"
           def imageLatest = "${imagetype}:latest"
@@ -77,7 +77,7 @@ pipeline {
                     fi
 
                     sudo docker pull ${imageLatest}
-                    sudo docker run -d --name ${container} -p ${port} ${imageLatest}
+                    sudo docker run -d --name ${container} -p ${PORT} ${imageLatest}
                   '
                 """
               }
