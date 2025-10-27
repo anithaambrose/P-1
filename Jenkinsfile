@@ -3,7 +3,7 @@ pipeline {
 
   environment {
 	APP_SERV_IP = '52.66.255.233'
-    	IMAGE = 'anitodevps/react-app'
+    	IMAGE = 'anitodevops/react-app'
         DOCKER_CRED_ID = 'dockerhub-creds'
   }
 
