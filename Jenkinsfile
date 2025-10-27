@@ -17,7 +17,7 @@ pipeline {
       steps {
         script {
 
-          sh "docker build -t ${imageno} ." 
+          sh "docker build -t ${IMAGE}:${env.BUILD_NUMBER} ." 
         }
       }
     }
