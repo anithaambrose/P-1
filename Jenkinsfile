@@ -56,8 +56,10 @@ pipeline {
           def envType = (env.BRANCH_NAME == 'master') ? 'prod' : 'dev'
           def port = '80:80'
           def container = "app-cont-${envType}"
+          def imagetype = "${IMAGE}-${envType}"
+          def imageLatest = "${imagetype}:latest"
           
-          if (envType == 'prod') {
+	  if (envType == 'prod') {
           //logging to Production server to perform Application deployment from Master.
 
             withCredentials([usernamePassword(credentialsId: "${DOCKER_CRED_ID}", usernameVariable: 'DH_USER', passwordVariable: 'DH_PASS')]) {
