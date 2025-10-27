@@ -17,8 +17,6 @@ pipeline {
       steps {
         script {
 
-          def imageno = "${IMAGE}:${env.BUILD_NUMBER}"
-
           sh "docker build -t ${imageno} ." 
         }
       }
@@ -27,7 +25,7 @@ pipeline {
     stage('Push') {
       steps {
         script {
-          
+          def imageno = "${IMAGE}:${env.BUILD_NUMBER}" 
           def envType = (env.BRANCH_NAME == 'master') ? 'prod' : 'dev'
           def imagetype = "${IMAGE}-${envType}" 
           def imagetypeNo = "${imagetype}:${env.BUILD_NUMBER}" 
