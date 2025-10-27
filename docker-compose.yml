@@ -1,0 +1,9 @@
+version: "3"
+services:
+  web:
+    build: .
+    image: anitodevops/app-image:latest
+    container_name: app-container
+    ports:
+      - "80:80"
+    restart: always
