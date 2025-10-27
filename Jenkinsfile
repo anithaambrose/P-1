@@ -40,7 +40,8 @@ pipeline {
               docker push ${imagetypeNo}
 
               docker tag ${imageno} ${imageLatest} 
-              docker push ${imageLatest} 
+              docker push ${imageLatest}
+	      docekr rmi ${IMAGE}:${env.BUILD_NUMBER}
 
             """
           }
@@ -63,7 +64,7 @@ pipeline {
 
               sshagent (credentials: ['newtestkey.pem']) {
                 sh """
-                  ssh -o StrictHostKeyChecking=no ubuntu@${IP} '
+                  ssh -o StrictHostKeyChecking=no ubuntu@${APP_SERV_IP} '
                     echo "$DH_PASS" | sudo docker login -u "$DH_USER" --password-stdin
 
                     if [ "\$(sudo docker ps -q -f name=${container})" ]; then
