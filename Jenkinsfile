@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-	APP_SERV_IP = '52.66.255.233'
+	APP_SERV_IP = '13.203.220.209'
 	PORT = '80:80'
     	IMAGE = 'anitodevops/react-app'
         DOCKER_CRED_ID = 'dockerhub-creds'
