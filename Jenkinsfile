@@ -84,7 +84,7 @@ pipeline {
             }
           } 
           else {
-                echo "Skipping deployment for Dev Branch on Application-Production Server."
+                echo "Skipping deployment for Dev Env/Branch on Application-Production Server."
           } 
        }
      }
