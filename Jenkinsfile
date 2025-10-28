@@ -6,6 +6,7 @@ pipeline {
 	PORT = '80:80'
     	IMAGE = 'anitodevops/react-app'
         DOCKER_CRED_ID = 'dockerhub-creds'
+	USER = 'anito'
   }
 
   triggers {
